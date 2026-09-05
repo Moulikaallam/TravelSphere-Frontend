@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TravelSphere — discover destinations, curated packages and unforgettable experiences.">
+  <title>TravelSphere | Explore Beyond</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header" id="top">
+    <a class="brand" href="#home" aria-label="TravelSphere home">
+      <span class="brand-mark">TS</span>
+      <span>Travel<span>Sphere</span></span>
+    </a>
+
+    <nav class="main-nav" id="mainNav">
+      <a class="active" href="#home">Home</a>
+      <a href="#packages">Packages</a>
+      <a href="#experiences">Experiences</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" id="searchToggle" aria-label="Open search">⌕</button>
+      <button class="outline-btn login-trigger">Sign in</button>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+    </div>
+  </header>
+
+  <div class="search-panel" id="searchPanel">
+    <div class="search-box">
+      <span>⌕</span>
+      <input id="siteSearch" type="search" placeholder="Search destinations, experiences..." autocomplete="off">
+      <button id="searchClose" aria-label="Close search">×</button>
+    </div>
+    <p id="searchHint">Try “beach”, “mountain”, “city” or a destination.</p>
+  </div>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-slider" id="heroSlider">
+        <article class="hero-slide active" style="background-image:url('images/p-4.jpg')">
+          <div class="hero-content">
+            <p class="eyebrow">Curated escapes • 2026</p>
+            <h1>Go where your<br><em>heart wanders.</em></h1>
+            <p class="hero-copy">Handpicked journeys, unforgettable views and simple planning — all in one place.</p>
+            <div class="hero-buttons">
+              <a class="primary-btn" href="#packages">Explore journeys <span>→</span></a>
+              <button class="play-btn" id="inspireBtn"><span>▶</span> Find inspiration</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="hero-slide" style="background-image:url('images/p-1.jpg')">
+          <div class="hero-content">
+            <p class="eyebrow">Slow travel • Island life</p>
+            <h1>Wake up to<br><em>blue horizons.</em></h1>
+            <p class="hero-copy">Escape the routine with peaceful coastlines, warm sun and days with nowhere to rush.</p>
+            <div class="hero-buttons">
+              <a class="primary-btn" href="#packages">View beach trips <span>→</span></a>
+              <button class="play-btn inspire-slide">✦ Curated for you</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="hero-slide" style="background-image:url('images/p-5.jpg')">
+          <div class="hero-content">
+            <p class="eyebrow">Adventure • Nature</p>
+            <h1>Trade the ordinary<br>for <em>altitude.</em></h1>
+            <p class="hero-copy">Mountain roads, fresh air and landscapes that make the journey as memorable as the destination.</p>
+            <div class="hero-buttons">
+              <a class="primary-btn" href="#experiences">Discover adventure <span>→</span></a>
+              <button class="play-btn inspire-slide">✦ Curated for you</button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="hero-bottom">
+        <div class="slider-controls">
+          <button class="slider-arrow" id="prevSlide" aria-label="Previous slide">←</button>
+          <div class="dots" id="heroDots"></div>
+          <button class="slider-arrow" id="nextSlide" aria-label="Next slide">→</button>
+        </div>
+        <div class="hero-meta">
+          <span>01</span>
+          <div></div>
+          <span>03</span>
+        </div>
+      </div>
+
+      <div class="booking-card" id="booking">
+        <div class="booking-heading">
+          <span class="tiny-label">PLAN YOUR ESCAPE</span>
+          <h2>Where will you go next?</h2>
+        </div>
+        <form id="bookingForm" class="booking-form">
+          <label>
+            <span>Destination</span>
+            <select id="destination" required>
+              <option value="">Choose a destination</option>
+              <option>Maldives</option>
+              <option>Paris</option>
+              <option>Swiss Alps</option>
+              <option>Dubai</option>
+              <option>Rome</option>
+              <option>New Zealand</option>
+            </select>
+          </label>
+          <label>
+            <span>Travelers</span>
+            <input id="travelers" type="number" min="1" max="20" value="2" required>
+          </label>
+          <label>
+            <span>Travel date</span>
+            <input id="travelDate" type="date" required>
+          </label>
+          <button class="primary-btn booking-submit" type="submit">Check availability <span>→</span></button>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" id="packages">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow dark">CURATED FOR YOU</p>
+          <h2>Popular <em>journeys</em></h2>
+        </div>
+        <p>From relaxing beaches to iconic cities, discover trips designed around how you love to travel.</p>
+      </div>
+
+      <div class="filter-bar" id="packageFilters">
+        <button class="filter active" data-filter="all">All trips</button>
+        <button class="filter" data-filter="beach">Beach</button>
+        <button class="filter" data-filter="adventure">Adventure</button>
+        <button class="filter" data-filter="city">City</button>
+        <button class="filter" data-filter="nature">Nature</button>
+      </div>
+
+      <div class="package-grid" id="packageGrid">
+        <article class="package-card" data-category="beach">
+          <div class="card-image"><img src="images/p-1.jpg" alt="Tropical beach with palm trees"><span class="tag">Beach</span><button class="heart" aria-label="Save Maldives trip">♡</button></div>
+          <div class="card-body"><div class="location">◉ Maldives</div><h3>Maldives Blue Escape</h3><p>5 days · Private island · Breakfast</p><div class="price-row"><strong>₹48,999</strong><span>per person</span><button class="small-btn book-package" data-destination="Maldives">View trip →</button></div></div>
+        </article>
+
+        <article class="package-card" data-category="city">
+          <div class="card-image"><img src="images/p-2.jpg" alt="Taj Mahal in Agra"><span class="tag">Culture</span><button class="heart" aria-label="Save India trip">♡</button></div>
+          <div class="card-body"><div class="location">◉ Agra, India</div><h3>Golden Heritage Trail</h3><p>3 days · Guided tours · Hotel stay</p><div class="price-row"><strong>₹14,999</strong><span>per person</span><button class="small-btn book-package" data-destination="Agra">View trip →</button></div></div>
+        </article>
+
+        <article class="package-card" data-category="beach">
+          <div class="card-image"><img src="images/p-3.jpg" alt="Overwater villas in turquoise sea"><span class="tag">Luxury</span><button class="heart" aria-label="Save island trip">♡</button></div>
+          <div class="card-body"><div class="location">◉ Bora Bora</div><h3>Island Dream Stay</h3><p>6 days · Villa · Island transfers</p><div class="price-row"><strong>₹82,500</strong><span>per person</span><button class="small-btn book-package" data-destination="Bora Bora">View trip →</button></div></div>
+        </article>
+
+        <article class="package-card" data-category="nature">
+          <div class="card-image"><img src="images/p-5.jpg" alt="Green mountain valley"><span class="tag">Nature</span><button class="heart" aria-label="Save mountain trip">♡</button></div>
+          <div class="card-body"><div class="location">◉ Swiss Alps</div><h3>Alpine Road Adventure</h3><p>7 days · Scenic rail · Mountain stay</p><div class="price-row"><strong>₹74,999</strong><span>per person</span><button class="small-btn book-package" data-destination="Swiss Alps">View trip →</button></div></div>
+        </article>
+
+        <article class="package-card" data-category="city">
+          <div class="card-image"><img src="images/p-8.jpg" alt="Colosseum in Rome at sunset"><span class="tag">History</span><button class="heart" aria-label="Save Rome trip">♡</button></div>
+          <div class="card-body"><div class="location">◉ Rome, Italy</div><h3>Rome in Three Days</h3><p>3 days · Old city · Local experiences</p><div class="price-row"><strong>₹39,999</strong><span>per person</span><button class="small-btn book-package" data-destination="Rome">View trip →</button></div></div>
+        </article>
+
+        <article class="package-card" data-category="adventure">
+          <div class="card-image"><img src="images/p-9.jpg" alt="Hot air balloons over Cappadocia"><span class="tag">Adventure</span><button class="heart" aria-label="Save Cappadocia trip">♡</button></div>
+          <div class="card-body"><div class="location">◉ Cappadocia, Türkiye</div><h3>Sky & Stone Escape</h3><p>4 days · Balloon ride · Cave hotel</p><div class="price-row"><strong>₹42,999</strong><span>per person</span><button class="small-btn book-package" data-destination="Cappadocia">View trip →</button></div></div>
+        </article>
+      </div>
+      <p class="empty-state" id="emptyState">No trips found in this category.</p>
+    </section>
+
+    <section class="experience-section" id="experiences">
+      <div class="experience-content">
+        <p class="eyebrow">WHY TRAVELSPHERE</p>
+        <h2>Travel is better when the <em>details feel effortless.</em></h2>
+        <p>We bring destinations, stays and experiences together so you can spend less time planning and more time looking forward to the journey.</p>
+        <div class="benefits">
+          <div><span>01</span><strong>Curated stays</strong><small>Handpicked places worth remembering.</small></div>
+          <div><span>02</span><strong>Flexible plans</strong><small>Build a trip around your pace.</small></div>
+          <div><span>03</span><strong>Local moments</strong><small>Go beyond the usual tourist checklist.</small></div>
+        </div>
+        <a class="text-link" href="#about">Learn about our approach →</a>
+      </div>
+      <div class="experience-image"><img src="images/g-4.jpg" alt="Luxury beach resort with turquoise water"></div>
+    </section>
+
+    <section class="section gallery-section" id="gallery">
+      <div class="section-head">
+        <div><p class="eyebrow dark">A GLIMPSE OF THE JOURNEY</p><h2>Moments worth <em>chasing.</em></h2></div>
+        <p>Save the views that make you want to pack your bags.</p>
+      </div>
+      <div class="gallery-grid">
+        <button class="gallery-item large" data-image="images/g-7.jpg"><img src="images/g-7.jpg" alt="London skyline"><span>London</span></button>
+        <button class="gallery-item" data-image="images/g-2.jpg"><img src="images/g-2.jpg" alt="Forest waterfall"><span>Waterfalls</span></button>
+        <button class="gallery-item" data-image="images/g-6.jpg"><img src="images/g-6.jpg" alt="Northern lights"><span>Arctic skies</span></button>
+        <button class="gallery-item" data-image="images/g-8.jpg"><img src="images/g-8.jpg" alt="Turquoise coastline"><span>Coastlines</span></button>
+        <button class="gallery-item" data-image="images/g-9.jpg"><img src="images/g-9.jpg" alt="Dubai skyline"><span>Dubai</span></button>
+      </div>
+    </section>
+
+    <section class="testimonial-section">
+      <div class="quote-mark">“</div>
+      <div class="testimonial-slider">
+        <article class="testimonial active"><p>TravelSphere made our first international trip feel incredibly simple. Every detail felt thoughtful, from the stay to the little local recommendations.</p><div><strong>Ananya R.</strong><span>Hyderabad · Maldives trip</span></div></article>
+        <article class="testimonial"><p>The package information was clear, the destination ideas were inspiring, and I loved being able to compare different travel styles before deciding.</p><div><strong>Rahul K.</strong><span>Bengaluru · Rome trip</span></div></article>
+        <article class="testimonial"><p>It feels less like browsing a booking site and more like having a travel planner help you discover what you actually want.</p><div><strong>Meera S.</strong><span>Mumbai · Swiss Alps trip</span></div></article>
+      </div>
+      <div class="testimonial-controls"><button id="prevReview">←</button><span id="reviewCount">01 / 03</span><button id="nextReview">→</button></div>
+    </section>
+
+    <section class="about-section" id="about">
+      <div><p class="eyebrow dark">ABOUT TRAVELSPHERE</p><h2>Made for people who collect <em>memories, not miles.</em></h2></div>
+      <p>TravelSphere is a frontend travel experience concept built to make discovering a trip feel inspiring, visual and effortless. Explore destinations, filter packages, save favourites and start a booking enquiry — all without leaving the page.</p>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="contact-copy"><p class="eyebrow">LET'S PLAN SOMETHING</p><h2>Have a destination<br>in <em>mind?</em></h2><p>Tell us where you'd like to go and we'll help you turn the idea into a journey.</p></div>
+      <form id="contactForm" class="contact-form">
+        <label>Name<input type="text" id="contactName" placeholder="Your name" required></label>
+        <label>Email<input type="email" id="contactEmail" placeholder="you@example.com" required></label>
+        <label>Message<textarea id="contactMessage" rows="4" placeholder="Tell us about your dream trip..." required></textarea></label>
+        <button class="primary-btn" type="submit">Send enquiry <span>→</span></button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div><a class="brand footer-brand" href="#top"><span class="brand-mark">TS</span><span>Travel<span>Sphere</span></span></a><p>Explore beyond the expected.</p></div>
+    <div class="footer-links"><a href="#packages">Packages</a><a href="#experiences">Experiences</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a></div>
+    <div><p>© 2026 TravelSphere</p><p>Frontend portfolio project</p></div>
+  </footer>
+
+  <div class="modal" id="messageModal" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close" data-close="messageModal">×</button>
+      <div class="modal-icon">✓</div>
+      <h3 id="modalTitle">You're all set!</h3>
+      <p id="modalMessage">Your request has been received.</p>
+      <button class="primary-btn" data-close="messageModal">Continue exploring</button>
+    </div>
+  </div>
+
+  <div class="modal" id="loginModal" aria-hidden="true">
+    <div class="modal-card login-card">
+      <button class="modal-close" data-close="loginModal">×</button>
+      <p class="eyebrow dark">WELCOME BACK</p>
+      <h3>Sign in to TravelSphere</h3>
+      <form id="loginForm">
+        <label>Email<input type="email" placeholder="you@example.com" required></label>
+        <label>Password<input type="password" placeholder="••••••••" minlength="6" required></label>
+        <button class="primary-btn" type="submit">Sign in <span>→</span></button>
+      </form>
+      <small>This is a frontend demo — no credentials are stored.</small>
+    </div>
+  </div>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose">×</button>
+    <img id="lightboxImage" src="" alt="Travel gallery preview">
+    <p id="lightboxCaption"></p>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
