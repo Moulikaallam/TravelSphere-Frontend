@@ -159,7 +159,7 @@ $("#contactForm").addEventListener("submit", async e => {
         );
 
         showMessage(
-            "Enquiry sent successfully!",
+            "Enquiry sent successfully! ✈️",
             `Thanks, ${name || "traveller"}! Your enquiry has been sent successfully.`
         );
 
