@@ -225,10 +225,44 @@
     <section class="contact-section" id="contact">
       <div class="contact-copy"><p class="eyebrow">LET'S PLAN SOMETHING</p><h2>Have a destination<br>in <em>mind?</em></h2><p>Tell us where you'd like to go and we'll help you turn the idea into a journey.</p></div>
       <form id="contactForm" class="contact-form">
-        <label>Name<input type="text" id="contactName" placeholder="Your name" required></label>
-        <label>Email<input type="email" id="contactEmail" placeholder="you@example.com" required></label>
-        <label>Message<textarea id="contactMessage" rows="4" placeholder="Tell us about your dream trip..." required></textarea></label>
-        <button class="primary-btn" type="submit">Send enquiry <span>→</span></button>
+      <input type="hidden" id="submittedAt" name="submitted_at">
+    <div class="form-group">
+        <label for="contactName">Name</label>
+        <input
+            type="text"
+            id="contactName"
+            name="from_name"
+            placeholder="Your name"
+            required
+        >
+    </div>
+
+    <div class="form-group">
+        <label for="contactEmail">Email</label>
+        <input
+            type="email"
+            id="contactEmail"
+            name="from_email"
+            placeholder="you@example.com"
+            required
+        >
+    </div>
+
+    <div class="form-group">
+        <label for="contactMessage">Message</label>
+        <textarea
+            id="contactMessage"
+            name="message"
+            rows="5"
+            placeholder="Tell us about your dream trip..."
+            required
+        ></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        Send Enquiry →
+    </button>
+
       </form>
     </section>
   </main>
@@ -270,6 +304,16 @@
   </div>
 
   <div class="toast" id="toast"></div>
-  <script src="script.js"></script>
+  <script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+
+<script>
+  emailjs.init({
+    publicKey: "jMWjF9WsEsnuYISKn"
+  });
+</script>
+
+<script src="script.js"></script>
 </body>
 </html>

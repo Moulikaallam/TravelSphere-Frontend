@@ -126,13 +126,58 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => $("#travelDate").focus(), 600);
   }));
 
-  // Contact form
-  $("#contactForm").addEventListener("submit", e => {
+
+  // Contact form — sends the enquiry to your email
+$("#contactForm").addEventListener("submit", async e => {
+
     e.preventDefault();
+
+    const form = e.target;
+
     const name = $("#contactName").value.trim();
-    showMessage(`Thanks, ${name || "traveller"}!`, "Your enquiry has been prepared successfully. In a real application this form would connect to a backend.");
-    e.target.reset();
-  });
+
+    // Get the current date and time in Indian Standard Time
+    const submittedAt = new Intl.DateTimeFormat("en-IN", {
+        timeZone: "Asia/Kolkata",
+        day: "2-digit",
+        month: "long",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true
+    }).format(new Date());
+
+    // Put the date and time into the hidden form field
+    $("#submittedAt").value = submittedAt;
+
+    try {
+
+        await emailjs.sendForm(
+            "service_yki47j9",
+            "template_e2hyquw",
+            form
+        );
+
+        showMessage(
+            "Enquiry sent successfully!",
+            `Thanks, ${name || "traveller"}! Your enquiry has been sent successfully.`
+        );
+
+        form.reset();
+
+    } catch (error) {
+
+    console.error("EmailJS error:", error);
+
+    showMessage(
+        "Unable to send enquiry",
+        "Something went wrong. Please try again.",
+        "error"
+    );
+
+}
+
+});
 
   // Inspiration CTA
   $$(".inspire-slide, #inspireBtn").forEach(btn => btn.addEventListener("click", () => {
@@ -201,12 +246,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }, { rootMargin: "-30% 0px -60% 0px" });
   sections.forEach(section => observer.observe(section));
+  
+  function showMessage(title, message, type = "success") {
 
-  function showMessage(title, message) {
     $("#modalTitle").textContent = title;
+
     $("#modalMessage").textContent = message;
+
+    const modalIcon = document.querySelector(".modal-icon");
+
+    if (type === "error") {
+
+        modalIcon.textContent = "✕";
+
+    } else {
+
+        modalIcon.textContent = "✓";
+
+    }
+
     openModal("messageModal");
-  }
+
+}
+
 
   function showToast(message) {
     const toast = $("#toast");
